@@ -1,7 +1,7 @@
 from os import path
 
-from image import Image
-from s3 import S3
+from pymagecli.image import Image
+from pymagecli.s3 import S3
 
 
 def check_extension(key):

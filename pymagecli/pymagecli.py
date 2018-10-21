@@ -1,7 +1,7 @@
 import click
 
-from s3 import S3
-from utils import get_file_and_resize
+from pymagecli.s3 import S3
+from pymagecli.utils import get_file_and_resize
 
 
 @click.group()
@@ -41,6 +41,3 @@ def file(bucket_name, file_name, width):
         width=width
     )
 
-
-if __name__ == '__main__':
-    cli()
