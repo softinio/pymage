@@ -5,7 +5,7 @@
 I needed a tool to resize images stored in a bucket on Amazon AWS S3 to make
 them optimal for web pages.
 
-There two ways to use this tool:
+There are two ways to use this tool:
 
 - As a CLI tool to resize an image or bucket of images stored on S3
 - As aws lambda function to resize an image upon upload to S3 (Experimental)
@@ -45,5 +45,5 @@ pymagecli <option> --help
 
 ## To Do
 - Write automated tests using Pytest
-- Document using lamda handler
+- Document using lambda handler
 - Add more image manipulation and resizing options
