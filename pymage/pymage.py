@@ -1,6 +1,8 @@
 import click
 
 from s3 import S3
+from utils import get_file_and_resize
+
 
 @click.group()
 def cli():
@@ -11,25 +13,33 @@ def cli():
 @click.argument('bucket_name')
 def list(bucket_name):
     """Lists contents of a given bucket"""
+    print("Bucket: {}".format(bucket_name))
     s3 = S3()
-    s3.list_objects(bucket_name)
+    bucket_list = s3.list_objects(bucket_name)
+    [print(key.key) for key in bucket_list]
 
 
 @cli.command()
 @click.argument('bucket_name')
-def resize(bucket_name):
+@click.option('--width', default=600, help='Image width')
+def resize(bucket_name, width):
     """Resize all files in a bucket"""
     s3 = S3()
-    #TODO
+    bucket_list = s3.list_objects(bucket_name)
+    [get_file_and_resize(bucket_name=bucket_name, file_name=key.key, width=width) for key in bucket_list]
 
 
 @cli.command()
 @click.argument('bucket_name')
 @click.argument('file_name')
-def file(bucket_name, file_name):
+@click.option('--width', default=600, help='Image width')
+def file(bucket_name, file_name, width):
     """resize a given file"""
-    s3 = S3()
-    #TODO
+    get_file_and_resize(
+        bucket_name=bucket_name,
+        file_name=file_name,
+        width=width
+    )
 
 
 if __name__ == '__main__':

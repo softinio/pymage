@@ -1,5 +1,5 @@
 import PIL
-from PIL import Image
+from PIL import Image as PILImage
 from io import BytesIO
 
 
@@ -12,10 +12,10 @@ class Image(object):
         :param width: image width
         :return: bytesIO with image resized
         """
-        img = Image.open(BytesIO(body))
+        img = PILImage.open(BytesIO(body))
         wpercent = (width / float(img.size[0]))
         hsize = int((float(img.size[1]) * float(wpercent)))
-        img = img.resize((size, hsize), PIL.Image.ANTIALIAS)
+        img = img.resize((width, hsize), PIL.Image.ANTIALIAS)
 
         buffer = BytesIO()
 

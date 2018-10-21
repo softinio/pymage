@@ -25,7 +25,11 @@ class S3(object):
           bucket_name=bucket_name,
           key=key,
         )
-        obj.put(ACL='public-read', Body=body)
+        obj.put(
+            ACL='public-read',
+            Metadata={'pymage': 'true'},
+            Body=body
+        )
 
     def delete_object(self, bucket_name, key):
         """
@@ -55,9 +59,9 @@ class S3(object):
         :param key: Object name to copy
         :return: S3 Object
         """
-        source = self.s3.Object(
-            bucket_name=bucket_name,
-            key=key,
-        )
+        source = {
+            "Bucket": bucket_name,
+            "Key": key,
+        }
         destination = 'archive/{}'.format(key)
-        s3.meta.client.copy(source, bucket_name, destination)
+        self.s3.meta.client.copy(source, bucket_name, destination)
