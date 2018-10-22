@@ -13,14 +13,14 @@ def check_extension(key):
     """
     extension = path.splitext(key)[1].lower()
 
-    if extension.lower() in [
+    if 'pymage_archive' not in key and extension.lower() in [
         '.jpg',
         '.jpeg',
         '.png',
     ]:
         return extension
     else:
-        raise ValueError('File format not supported')
+        print("skipping, wrong ext: for {}".format(key))
 
 
 def get_file_and_resize(bucket_name, file_name, width=600):
@@ -29,6 +29,8 @@ def get_file_and_resize(bucket_name, file_name, width=600):
     obj = s3.get_object(bucket_name, file_name)
     body = obj.get()['Body'].read()
     file_ext = check_extension(file_name)
+    if not file_ext:
+        return None
     new_body = image.resize_image(
         body=body,
         extension=file_ext,

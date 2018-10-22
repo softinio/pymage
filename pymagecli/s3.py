@@ -63,5 +63,5 @@ class S3(object):
             "Bucket": bucket_name,
             "Key": key,
         }
-        destination = 'archive/{}'.format(key)
+        destination = 'pymage_archive/{}'.format(key)
         self.s3.meta.client.copy(source, bucket_name, destination)

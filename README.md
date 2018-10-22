@@ -37,11 +37,11 @@ pymagecli <option> --help
 - AWS Docs: [https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html)
 
 ## Notes
-- Before files are resized a copy of the original is made to archive directory
+- Before files are resized a copy of the original is made to pymage_archive directory
     of the bucket file is located in
 - Contributions welcome
 - Any questions or issues please open an issue here on Github
-- Blog on how to use this pack coming soon follow me: [https://www.softinio.com](https://www.softinio.com)
+- Blog on how to use this package coming soon follow me: [https://www.softinio.com](https://www.softinio.com)
 
 ## To Do
 - Write automated tests using Pytest
