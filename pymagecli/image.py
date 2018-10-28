@@ -12,21 +12,26 @@ class Image(object):
         :param width: image width
         :return: bytesIO with image resized
         """
-        img = PILImage.open(BytesIO(body))
-        wpercent = (width / float(img.size[0]))
-        hsize = int((float(img.size[1]) * float(wpercent)))
-        img = img.resize((width, hsize), PIL.Image.ANTIALIAS)
+        try:
+            img = PILImage.open(BytesIO(body))
+            wpercent = (width / float(img.size[0]))
+            hsize = int((float(img.size[1]) * float(wpercent)))
+            img = img.resize((width, hsize), PIL.Image.ANTIALIAS)
 
-        buffer = BytesIO()
+            buffer = BytesIO()
 
-        if extension in ['.jpeg', '.jpg']:
-            format = 'JPEG'
-            img.save(buffer, format, quality=85, optimize=True)
-        if extension in ['.png']:
-            format = 'PNG'
-            img.save(buffer, format, optimize=True)
+            if extension in ['.jpeg', '.jpg']:
+                format = 'JPEG'
+                img.save(buffer, format, quality=85, optimize=True)
+            if extension in ['.png']:
+                format = 'PNG'
+                img.save(buffer, format, optimize=True)
 
-        buffer.seek(0)
+            buffer.seek(0)
 
-        return buffer
+            return buffer
+        except Exception as e:
+            message = "resize_image FAIL: {}".format(e)
+            print(message)
+            return None
 
