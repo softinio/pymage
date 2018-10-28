@@ -8,7 +8,7 @@ them optimal for web pages.
 There are three ways to use this tool:
 
 - As a CLI tool to resize an image or bucket of images stored on S3
-- As a CLI tool to migrate image from a URL to S3 and resize them and update its URL in a markdown file
+- As a CLI tool to migrate image from a Google Photos URL to S3 and resize them and update its URL in a markdown file
 - As aws lambda function to resize an image upon upload to S3 (Experimental)
 
 ## Install

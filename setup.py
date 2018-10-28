@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="pymagecli",
-    version="0.0.2",
+    version="0.0.3",
     python_requires='>=3.6.*, <3.7',
     author="Salar Rahmanian",
     author_email="code@softinio.com",
