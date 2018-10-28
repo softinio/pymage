@@ -36,9 +36,10 @@ def get_file_and_resize(bucket_name, file_name, width=600):
         extension=file_ext,
         width=width
     )
-    s3.copy_to_archive(bucket_name=bucket_name, key=file_name)
-    s3.put_object(
-        bucket_name=bucket_name,
-        key=file_name,
-        body=new_body
-    )
+    if new_body:
+        s3.copy_to_archive(bucket_name=bucket_name, key=file_name)
+        s3.put_object(
+            bucket_name=bucket_name,
+            key=file_name,
+            body=new_body
+        )

@@ -1,5 +1,6 @@
 import click
 
+from pymagecli.markdown_parser import move_all_photos, move_all_photos_file
 from pymagecli.s3 import S3
 from pymagecli.utils import get_file_and_resize
 
@@ -41,3 +42,27 @@ def file(bucket_name, file_name, width):
         width=width
     )
 
+
+@cli.command()
+@click.argument('bucket_name')
+@click.argument('directory_path')
+@click.argument('base_url')
+def migrate(bucket_name, directory_path, base_url):
+    """Migrate photos from a given url to s3 and replace url in markdown doc for all md files in a directory"""
+    move_all_photos(
+        bucket_name=bucket_name,
+        directory_path=directory_path,
+        base_url=base_url
+    )
+
+@cli.command()
+@click.argument('bucket_name')
+@click.argument('file_path')
+@click.argument('base_url')
+def migratefile(bucket_name, file_path, base_url):
+    """Migrate photos from a given url to s3 and replace url in markdown doc for given file"""
+    move_all_photos_file(
+        bucket_name=bucket_name,
+        file_name=file_path,
+        base_url=base_url
+    )
