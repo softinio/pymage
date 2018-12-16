@@ -1,6 +1,6 @@
 requests
 markdown
-boto3==1.9.18
+boto3==1.9.62
 Click==7.0
 Pillow==5.3.0
-pytest==3.9.1
+pytest==4.0.1
