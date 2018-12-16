@@ -19,7 +19,7 @@ pip install pymagecli
 
 ## Usage
 
-Use Python Version: 3.6.x (AWS Lambda does not support 3.7.x yet !)
+Use Python Version: 3.7
 
 ### CLI
 
