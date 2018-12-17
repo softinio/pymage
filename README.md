@@ -34,7 +34,7 @@ pymagecli <option> --help
 
 ### AWS Lambda
 
-- For lambda function see handler: `pymagecli/handler.py`
+- For lambda function see handler: `handler.py`
 - AWS Docs: [https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html)
 
 ## Notes
