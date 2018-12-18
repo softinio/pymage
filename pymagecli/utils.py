@@ -18,9 +18,11 @@ def check_extension(key):
         '.jpeg',
         '.png',
     ]:
+        print("ext: for {}".format(extension))
         return extension
     else:
         print("skipping, wrong ext: for {}".format(key))
+        return None
 
 
 def get_file_and_resize(bucket_name, file_name, width=600):
