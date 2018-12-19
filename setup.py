@@ -9,8 +9,9 @@ setup(
     python_requires=">=3.6.*, <=3.7.*",
     author="Salar Rahmanian",
     author_email="code@softinio.com",
-    description="A CLI tool and an AWS Lambda handler to resize images stored on AWS S3",
-    long_description="A CLI tool and an AWS Lambda handler to resize images stored on AWS S3",
+    description="A CLI tool and an AWS Lambda handler to resize images on S3",
+    long_description="""\
+    A CLI tool and an AWS Lambda handler to resize images stored on AWS S3""",
     long_description_content_type="text/markdown",
     url="https://github.com/softinio/pymagecli",
     classifiers=[

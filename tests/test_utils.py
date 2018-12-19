@@ -1,5 +1,3 @@
-import pytest
-
 from pymagecli.utils import check_extension
 
 

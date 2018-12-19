@@ -47,7 +47,10 @@ def file(bucket_name, file_name, width):
 @click.argument("directory_path")
 @click.argument("base_url")
 def migrate(bucket_name, directory_path, base_url):
-    """Migrate photos from a given url to s3 and replace url in markdown doc for all md files in a directory"""
+    """
+    Migrate photos from a given url to s3 and replace url in markdown doc for
+    all md files in a directory
+    """
     move_all_photos(
         bucket_name=bucket_name, directory_path=directory_path, base_url=base_url
     )
@@ -58,7 +61,10 @@ def migrate(bucket_name, directory_path, base_url):
 @click.argument("file_path")
 @click.argument("base_url")
 def migratefile(bucket_name, file_path, base_url):
-    """Migrate photos from a given url to s3 and replace url in markdown doc for given file"""
+    """
+    Migrate photos from a given url to s3 and replace url in markdown doc for
+    given file
+    """
     move_all_photos_file(
         bucket_name=bucket_name, file_name=file_path, base_url=base_url
     )
