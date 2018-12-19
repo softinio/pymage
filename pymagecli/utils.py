@@ -13,11 +13,7 @@ def check_extension(key):
     """
     extension = path.splitext(key)[1].lower()
 
-    if 'pymage_archive' not in key and extension.lower() in [
-        '.jpg',
-        '.jpeg',
-        '.png',
-    ]:
+    if "pymage_archive" not in key and extension.lower() in [".jpg", ".jpeg", ".png"]:
         print("ext: for {}".format(extension))
         return extension
     else:
@@ -29,19 +25,26 @@ def get_file_and_resize(bucket_name, file_name, width=600):
     image = Image()
     s3 = S3()
     obj = s3.get_object(bucket_name, file_name)
-    body = obj.get()['Body'].read()
+    body = obj.get()["Body"].read()
     file_ext = check_extension(file_name)
     if not file_ext:
         return None
-    new_body = image.resize_image(
-        body=body,
-        extension=file_ext,
-        width=width
-    )
+    new_body = image.resize_image(body=body, extension=file_ext, width=width)
     if new_body:
         s3.copy_to_archive(bucket_name=bucket_name, key=file_name)
-        s3.put_object(
-            bucket_name=bucket_name,
-            key=file_name,
-            body=new_body
-        )
+        s3.put_object(bucket_name=bucket_name, key=file_name, body=new_body)
+
+
+def get_file_and_resize_with_destination(
+    bucket_name, file_name, destination_bucket_name, width=600
+):
+    image = Image()
+    s3 = S3()
+    obj = s3.get_object(bucket_name, file_name)
+    body = obj.get()["Body"].read()
+    file_ext = check_extension(file_name)
+    if not file_ext:
+        return None
+    new_body = image.resize_image(body=body, extension=file_ext, width=width)
+    if new_body:
+        s3.put_object(bucket_name=destination_bucket_name, key=file_name, body=new_body)

@@ -1,4 +1,3 @@
-
 from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
@@ -6,8 +5,8 @@ with open("README.md", "r") as fh:
 
 setup(
     name="pymagecli",
-    version="0.0.6",
-    python_requires='>=3.6.*, <=3.7.*',
+    version="0.0.7",
+    python_requires=">=3.6.*, <=3.7.*",
     author="Salar Rahmanian",
     author_email="code@softinio.com",
     description="A CLI tool and an AWS Lambda handler to resize images stored on AWS S3",
@@ -21,13 +20,9 @@ setup(
     ],
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[
-        'Click',
-        'pillow'
-    ],
-    entry_points='''
+    install_requires=["Click", "pillow"],
+    entry_points="""
         [console_scripts]
         pymagecli=pymagecli.pymagecli:cli
-    ''',
+    """,
 )
-
