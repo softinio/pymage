@@ -14,7 +14,6 @@ def check_extension(key):
     extension = path.splitext(key)[1].lower()
 
     if "pymage_archive" not in key and extension.lower() in [".jpg", ".jpeg", ".png"]:
-        print("ext: for {}".format(extension))
         return extension
     else:
         print("skipping, wrong ext: for {}".format(key))
